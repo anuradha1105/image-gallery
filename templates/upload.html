@@ -1,11 +1,8 @@
 <!doctype html>
-<title>Gallery</title>
-<h1>Uploaded images</h1>
-<p><a href="{{ url_for('upload_file') }}">Upload another</a></p>
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;">
-  {% for src in images %}
-    <img src="{{ src }}" alt="" style="max-width:100%;height:auto;border:1px solid #ddd;border-radius:8px;">
-  {% else %}
-    <p>No images yet.</p>
-  {% endfor %}
-</div>
+<title>Upload</title>
+<h1>Upload an image</h1>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="file" accept="image/*" required>
+  <button type="submit">Upload</button>
+</form>
+<p><a href="{{ url_for('index') }}">Back</a></p>
