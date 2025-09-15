@@ -13,10 +13,9 @@ Then compare their performance in terms of **startup time, CPU usage, memory usa
 <img width="391" height="466" alt="repo" src="https://github.com/user-attachments/assets/d23b3e6e-cb84-44f4-9061-1cab49f491dd" />
 
 
-
-
 ---
 
+## Running the App
 
 ### Docker (Container)
 ```bash
@@ -28,19 +27,3 @@ docker run --rm --entrypoint pytest upload-app -q
 docker run --rm -p 5000:5000 \
   -v "$(pwd)/static/uploads:/app/static/uploads" \
   --name upload-app upload-app
----
-Open in browser: http://localhost:5000
----
-
-cd vagrant
-vagrant up
-
----
-Check status:
-
-vagrant ssh -c "systemctl status flaskapp --no-pager -l | head -n 15"
-
----
-Open in browser: http://localhost:5001
- (or whatever port vagrant port shows)
-
