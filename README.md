@@ -13,57 +13,12 @@ Then compare their performance in terms of **startup time, CPU usage, memory usa
 <img width="391" height="466" alt="repo" src="https://github.com/user-attachments/assets/d23b3e6e-cb84-44f4-9061-1cab49f491dd" />
 
 
+---
 
-## Running the App
+## 🚀 Running the Application
 
-### Docker (Container)
+### 🔹 Container (Docker)
+Build & test:
 ```bash
-# Build & test
 docker build -t upload-app .
 docker run --rm --entrypoint pytest upload-app -q
-
-
-
-# Run
-docker run --rm -p 5000:5000 \
-  -v "$(pwd)/static/uploads:/app/static/uploads" \
-  --name upload-app upload-app
-
-<img width="1173" height="540" alt="image" src="https://github.com/user-attachments/assets/cea68539-f72c-441e-8483-558f8aaffeab" />
-
-Open in browser: http://localhost:5000
-
-Vagrant VM
-
-
-Check status:
-
-
-Open in browser: http://localhost:5001
-
-Result Table 
-
-
-<img width="580" height="167" alt="table" src="https://github.com/user-attachments/assets/97b4af33-a2d4-4356-a347-8f679a58d6c8" />
-
-Tools Used:
-- **Docker (for container)**
-- **Vagrant + VirtualBox (for VM)**
-- **Gunicorn (server)**
-- **Pytest (functional testing)**
-- **ApacheBench (ab) + wrk (load testing)**
-- **curl (HTTP health check)**
-- **docker stats & top (CPU/memory)**
-- **Custom scripts (start_measure_container.sh, start_measure_vm.sh, etc.)**
-
-Conclusion
-
-- **Containers have much faster startup times and much smaller memory usage.**
-- **VM loads more heavily on memory, slower startup, but better stability of throughput under sustained load.**
-- **Latency varies; containers faced timeouts in high load, while VM latency was more predictable.**
-- **Overall, containerization is more efficient for lightweight apps; VMs work when you need a more isolated environment and sustain load, but with higher overhead.**
-
-To run measurement scripts (from project root):
-bash scripts/start_measure_container.sh
-bash scripts/start_measure_vm.sh 5001
-
