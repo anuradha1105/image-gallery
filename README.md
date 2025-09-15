@@ -22,3 +22,13 @@ Build & test:
 ```bash
 docker build -t upload-app .
 docker run --rm --entrypoint pytest upload-app -q
+```
+Run:
+```
+docker run --rm -p 5000:5000 \
+  -v "$(pwd)/static/uploads:/app/static/uploads" \
+  --name upload-app upload-app
+```
+
+
+
