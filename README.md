@@ -31,5 +31,28 @@ docker run --rm -p 5000:5000 \
 ```
 App available at 👉 http://localhost:5000
 
+🔹 VM (Vagrant)
 
+Start VM:
+```
+cd vagrant
+vagrant up
+vagrant ssh -c "systemctl status flaskapp --no-pager -l | head -n 15"
+
+```
+App URL → http://localhost:5001
+
+🧪 Measurement Process
+Startup time
+Measured using scripts:
+- *scripts/start_measure_container.sh
+- *scripts/start_measure_vm.sh
+- *Scripts use date +%s%3N to capture milliseconds, restart service/container, and curl until HTTP 200 OK.
+
+CPU & Memory
+- *Container: docker stats*
+- *VM: top or htop inside VM*
+
+Throughput & Latency
+Used ApacheBench (ab) with:
 
