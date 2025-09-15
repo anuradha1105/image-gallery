@@ -61,6 +61,7 @@ Conclusion
 - **Latency varies; containers faced timeouts in high load, while VM latency was more predictable.**
 - **Overall, containerization is more efficient for lightweight apps; VMs work when you need a more isolated environment and sustain load, but with higher overhead.**
 
-How to Use / Setup
+To run measurement scripts (from project root):
+bash scripts/start_measure_container.sh
+bash scripts/start_measure_vm.sh 5001
 
-Clone this repo:
