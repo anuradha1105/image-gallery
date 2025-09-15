@@ -53,6 +53,8 @@ CPU & Memory
 - *Container: docker stats
 - *VM: top or htop inside VM
 
+Comparision Table 
+<img width="582" height="165" alt="image" src="https://github.com/user-attachments/assets/da0d46a5-0bfa-41cc-bd28-cbcca6991535" />
 
 🛠️ Tools Used
 
