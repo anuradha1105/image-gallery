@@ -22,8 +22,7 @@ Then compare their performance in terms of **startup time, CPU usage, memory usa
 docker build -t upload-app .
 docker run --rm --entrypoint pytest upload-app -q
 
-<img width="976" height="402" alt="image" src="https://github.com/user-attachments/assets/45a15bd9-329d-4361-b943-6bc635687bb8" />
-<img width="1103" height="70" alt="image" src="https://github.com/user-attachments/assets/7ef7ed4e-ff0a-493c-854d-231e68dd51fb" />
+
 
 # Run
 docker run --rm -p 5000:5000 \
@@ -43,6 +42,7 @@ Check status:
 Open in browser: http://localhost:5001
 
 Result Table 
+<img width="580" height="167" alt="image" src="https://github.com/user-attachments/assets/9e827cd5-ac53-401e-9241-ee8ce1c8420a" />
 
 
 
