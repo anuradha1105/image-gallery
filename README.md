@@ -50,9 +50,47 @@ Measured using scripts:
 - *Scripts use date +%s%3N to capture milliseconds, restart service/container, and curl until HTTP 200 OK.
 
 CPU & Memory
-- *Container: docker stats*
-- *VM: top or htop inside VM*
+- *Container: docker stats
+- *VM: top or htop inside VM
 
-Throughput & Latency
-Used ApacheBench (ab) with:
+
+🛠️ Tools Used
+
+- *Docker → Containerization, docker stats
+- *Vagrant + VirtualBox → VM provisioning
+- *Gunicorn → WSGI server for Flask
+- *Pytest → Functional test for app
+- *ApacheBench (ab) → Load testing
+- *wrk → (optional) Longer load testing
+- *curl → Health check requests
+- *top/htop → VM resource monitoring
+- *Custom Bash scripts → Automated startup measurement & logging
+
+  📦 Docker Registry
+
+Image pushed to Docker Hub:
+
+docker login
+```
+docker tag upload-app:latest <your-dockerhub-username>/upload-app:latest
+docker push <your-dockerhub-username>/upload-app:latest
+```
+
+✅ Conclusions
+
+Containers:
+- *Start much faster (~3.7s vs ~8s)
+- *Use significantly less memory (~36 MB vs ~176 MB)
+- *Provide slightly lower latency (p50 ~140ms vs 163ms)
+
+VMs:
+- *Slower startup, heavier memory usage
+- *Slightly lower throughput (~114 req/s)
+- *Latency stable but higher (p95 ~400ms vs container ~300ms)
+
+👉 Overall:
+- *Containers are better for fast startup and resource efficiency.
+- *VMs are heavier but provide stronger isolation.
+- *For microservices and scaling, containers are preferred.
+- *For legacy apps or strong isolation needs, VMs are suitable.
 
