@@ -30,24 +30,21 @@ Result Table
 
 
 Tools Used:
-Docker (for container)
-Vagrant + VirtualBox (for VM)
-Gunicorn (server)
-Pytest (functional testing)
-ApacheBench (ab) + wrk (load testing)
-curl (HTTP health check)
-docker stats & top (CPU/memory)
-Custom scripts (start_measure_container.sh, start_measure_vm.sh, etc.)
+- **Docker (for container)**
+- **Vagrant + VirtualBox (for VM)**
+- **Gunicorn (server)**
+- **Pytest (functional testing)**
+- **ApacheBench (ab) + wrk (load testing)**
+- **curl (HTTP health check)**
+- **docker stats & top (CPU/memory)**
+- **Custom scripts (start_measure_container.sh, start_measure_vm.sh, etc.)**
 
 Conclusion
 
-Containers have much faster startup times and much smaller memory usage.
-
-VM loads more heavily on memory, slower startup, but better stability of throughput under sustained load.
-
-Latency varies; containers faced timeouts in high load, while VM latency was more predictable.
-
-Overall, containerization is more efficient for lightweight apps; VMs work when you need a more isolated environment and sustain load, but with higher overhead.
+- **Containers have much faster startup times and much smaller memory usage.**
+- **VM loads more heavily on memory, slower startup, but better stability of throughput under sustained load.**
+- **Latency varies; containers faced timeouts in high load, while VM latency was more predictable.**
+- **Overall, containerization is more efficient for lightweight apps; VMs work when you need a more isolated environment and sustain load, but with higher overhead.**
 
 How to Use / Setup
 
