@@ -13,9 +13,6 @@ Then compare their performance in terms of **startup time, CPU usage, memory usa
 <img width="391" height="466" alt="repo" src="https://github.com/user-attachments/assets/d23b3e6e-cb84-44f4-9061-1cab49f491dd" />
 
 
----
-
----
 
 ## Running the App
 
