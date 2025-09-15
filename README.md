@@ -29,3 +29,12 @@ docker run --rm -p 5000:5000 \
   -v "$(pwd)/static/uploads:/app/static/uploads" \
   --name upload-app upload-app
 
+Open in browser: http://localhost:5000
+
+cd vagrant
+vagrant up
+vagrant ssh -c "systemctl status flaskapp --no-pager -l | head -n 15"
+
+Open in browser: http://localhost:5001
+ (or whatever port vagrant port shows)
+
