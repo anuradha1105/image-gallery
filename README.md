@@ -29,6 +29,7 @@ docker run --rm -p 5000:5000 \
   -v "$(pwd)/static/uploads:/app/static/uploads" \
   --name upload-app upload-app
 ```
+App available at 👉 http://localhost:5000
 
 
 
