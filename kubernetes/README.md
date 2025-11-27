@@ -78,7 +78,7 @@ gallery-service
 
 
 
-## Kubernetes Components**
+## Kubernetes Components
 1. Namespace
 
 2. Deployment
