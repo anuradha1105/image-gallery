@@ -98,7 +98,7 @@ Browser: http://localhost:8080
 - kubectl get pods -n image-gallery
 - kubectl get svc -n image-gallery
 - kubectl port-forward svc/gallery-service -n image-gallery 8080:80
-- Access application at http://localhost:8080
+- Access application at http:/localhost:8080
 
 
 <img width="1182" height="354" alt="image" src="https://github.com/user-attachments/assets/9c6a9e43-f500-409a-9f7d-20c39607f325" />
