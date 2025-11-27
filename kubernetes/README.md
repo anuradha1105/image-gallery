@@ -59,6 +59,8 @@ Access the app:
 
 
 
+
+
 ## AFTER: Kubernetes Microservices Architecture
 - Separation of concerns
 - Independent container orchestration
@@ -74,10 +76,14 @@ gallery-service
 
 <img width="429" height="573" alt="image" src="https://github.com/user-attachments/assets/daaf5a62-244e-4f81-a372-ab2a8f750c65" />
 
+
+
 ## Kubernetes Components**
-1 Namespace
-2 Deployment
-3 Service (NodePort)
+1. Namespace
+
+2. Deployment
+
+3. Service (NodePort)
 
 ## How the app is accessed:
 kubectl port-forward svc/gallery-service -n image-gallery 8080:80
