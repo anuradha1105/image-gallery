@@ -1,5 +1,8 @@
+# 
+
 from flask import Flask, render_template, request, redirect, url_for, abort
-import os, uuid
+import os
+import uuid
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -13,10 +16,20 @@ ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "gif", "webp"}
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = 10 * 1024 * 1024  # 10 MB
 
-# Ensure upload folder exists (handle the case where a file exists at that path)
-if os.path.isfile(UPLOAD_FOLDER):
-    os.remove(UPLOAD_FOLDER)
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+# Ensure upload folder exists (do NOT try to delete it)
+# Ensure upload folder exists (handle file vs folder correctly)
+if os.path.exists(UPLOAD_FOLDER):
+    if os.path.isdir(UPLOAD_FOLDER):
+        # Path exists and is already a directory -> nothing to do
+        pass
+    else:
+        # A file exists where the folder should be -> remove and recreate as directory
+        os.remove(UPLOAD_FOLDER)
+        os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+else:
+    # Path does not exist at all -> create directory
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 
 def allowed_file(filename: str) -> bool:
     ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
@@ -46,7 +59,10 @@ def upload_file():
             abort(400, "Unsupported file type")
         base = secure_filename(f.filename)
         name, dot, ext = base.rpartition(".")
-        unique = f"{name or 'image'}-{uuid.uuid4().hex[:8]}.{ext}" if ext else f"{base}-{uuid.uuid4().hex[:8]}"
+        if ext:
+            unique = f"{name or 'image'}-{uuid.uuid4().hex[:8]}.{ext}"
+        else:
+            unique = f"{base}-{uuid.uuid4().hex[:8]}"
         dest = os.path.join(app.config["UPLOAD_FOLDER"], unique)
         f.save(dest)
         return redirect(url_for("index"))
