@@ -28,6 +28,21 @@ The app allows users to upload and view images through a clean web interface.
 
 ---
 
+
+## BEFORE: Docker Architecture
+
+
+<img width="642" height="491" alt="image" src="https://github.com/user-attachments/assets/d44a853d-5dcf-4e92-a80f-4e442bc37d11" />
+
+
+## Description
+- Single container.
+- No orchestration, no auto-recovery, no scaling.
+- Networking handled directly via docker run -p 5000:5000.
+- Local host filesystem used for uploads (optional: -v static/uploads:/app/static/uploads).
+- If container dies → app goes down.
+
+
 Originally, the application was run using:
 docker build -t upload-app .
 
@@ -42,18 +57,6 @@ The assignment required extending this into a scalable Kubernetes deployment.
 Access the app:  
 👉 http://localhost:5000
 
-## BEFORE: Docker Architecture
-
-
-<img width="642" height="491" alt="image" src="https://github.com/user-attachments/assets/d44a853d-5dcf-4e92-a80f-4e442bc37d11" />
-
-
-## Description
-- Single container.
-- No orchestration, no auto-recovery, no scaling.
-- Networking handled directly via docker run -p 5000:5000.
-- Local host filesystem used for uploads (optional: -v static/uploads:/app/static/uploads).
-- If container dies → app goes down.
 
 
 ## AFTER: Kubernetes Microservices Architecture
