@@ -54,9 +54,6 @@ docker run --rm -p 5000:5000 upload-app
 
 The assignment required extending this into a scalable Kubernetes deployment.
 
-Access the app:  
-👉 http://localhost:5000
-
 
 
 
